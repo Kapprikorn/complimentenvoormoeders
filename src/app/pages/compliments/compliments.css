@@ -1,5 +1,29 @@
 :host {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.birthday-wishes {
+  font-size: 48px;
+  line-height: 40px;
+}
+
+.changeDateButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 50px;
+  width: 50px;
+  border: none;
+  background: none;
+}
+
+.birthday-controls {
+  position: absolute;
+  top: 50px;
+  right: 0;
 }

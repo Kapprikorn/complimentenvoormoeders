@@ -1,1 +1,48 @@
+@if (isBirthday) {
+  <span class="birthday-wishes mb-5">
+    🥳🎈🎉 Fijne Verjaardag! 🎉🎈🥳
+  </span>
+} @else {
+  <span class="opacity-50 mb-5">
+    🤗 nog {{ daysUntilBirthday }} dagen 🤗
+  </span>
+}
+
 <p>compliments works!</p>
+
+<button type="button" class="btn btn-primary">Genereer nieuw compliment</button>
+
+
+
+
+<button class="changeDateButton"
+        (click)="collapse.toggle()"
+        [attr.aria-expanded]="!isCollapsed"
+        aria-controls="collapseExample"
+></button>
+
+<div #collapse="ngbCollapse" [(ngbCollapse)]="isCollapsed" [horizontal]="true" class="birthday-controls">
+  <div class="card" style="width: 300px">
+    <p class="card-header">Test andere verjaardag</p>
+    <div class="card-body input-group">
+      <input #day type="number" class="form-control" placeholder="Dag" aria-label="birthDay" min="1" max="31">
+      <span class="input-group-text">-</span>
+      <select #monthSelect class="form-select" aria-label="birthMonth">
+        <option value="" disabled selected>Maand</option>
+        <option value="0">Januari</option>
+        <option value="1">Februari</option>
+        <option value="2">Maart</option>
+        <option value="3">April</option>
+        <option value="4">Mei</option>
+        <option value="5">Juni</option>
+        <option value="6">Juli</option>
+        <option value="7">Augustus</option>
+        <option value="8">September</option>
+        <option value="9">Oktober</option>
+        <option value="10">November</option>
+        <option value="11">December</option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-secondary" (click)="confirmBirthday(day.value, monthSelect.value)">Bevestig</button>
+  </div>
+</div>
