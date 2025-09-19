@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
+// @ts-ignore
+import confetti from 'canvas-confetti';
 
 @Component({
   selector: 'app-compliments',
@@ -7,11 +9,27 @@ import { NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './compliments.html',
   styleUrl: './compliments.css'
 })
-export class Compliments {
+export class Compliments implements OnInit {
   isCollapsed = true;
 
   private birthDay = 28
   private birthMonth = 8
+
+  ngOnInit() {
+    this.showBirthdayEffect();
+  }
+
+  private showBirthdayEffect() {
+    if (this.isBirthday) {
+      setTimeout(() => {
+        confetti({
+          particleCount: 100,
+          spread: 160,
+          origin: {y: 0.6},
+        })
+      }, 800)
+    }
+  }
 
   get isBirthday() {
     const today = new Date();
@@ -45,5 +63,6 @@ export class Compliments {
 
     this.birthDay = parsedDay;
     this.birthMonth = parsedMonth;
+    this.showBirthdayEffect();
   }
 }
