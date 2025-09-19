@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { NgbCollapseModule} from '@ng-bootstrap/ng-bootstrap';
 // @ts-ignore
 import confetti from 'canvas-confetti';
+import compliments from './complimenten_moeders';
 
 @Component({
   selector: 'app-compliments',
@@ -10,13 +11,27 @@ import confetti from 'canvas-confetti';
   styleUrl: './compliments.css'
 })
 export class Compliments implements OnInit {
+
   isCollapsed = true;
 
   private birthDay = 28
   private birthMonth = 8
 
+  private compliments: string[] = compliments();
+  protected currentCompliment = '';
+
   ngOnInit() {
     this.showBirthdayEffect();
+    this.generateCompliment();
+  }
+
+  protected generateCompliment() {
+    if (!this.compliments.length) {
+      this.currentCompliment = 'Nog geen complimenten beschikbaar.';
+      return;
+    }
+    const index = Math.floor(Math.random() * this.compliments.length);
+    this.currentCompliment = this.compliments[index];
   }
 
   private showBirthdayEffect() {

@@ -10,12 +10,10 @@
   </span>
 }
 
-<p>compliments works!</p>
+<p>Je bent de beste moeder, want</p>
+<p class="compliment">{{ currentCompliment }}</p>
 
-<button type="button" class="btn btn-primary">Genereer nieuw compliment</button>
-
-
-
+<button type="button" class="btn btn-primary" (click)="generateCompliment()">Genereer nieuw compliment</button>
 
 <button class="changeDateButton"
         (click)="collapse.toggle()"
