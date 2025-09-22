@@ -32,6 +32,8 @@ export class Compliments implements OnInit {
     }
     const index = Math.floor(Math.random() * this.compliments.length);
     this.currentCompliment = this.compliments[index];
+
+    this.showBirthdayEffect();
   }
 
   private showBirthdayEffect() {

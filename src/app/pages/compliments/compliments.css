@@ -27,3 +27,10 @@
   top: 50px;
   right: 0;
 }
+
+.compliment {
+  font-size: 1.5rem;
+  text-align: center;
+  text-wrap: balance;
+  font-weight: 600;
+}
